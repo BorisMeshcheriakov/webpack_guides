@@ -9,6 +9,22 @@ module.exports = merge(common, {
     open: true,
     compress: true,
     hot: true,
-    port: 8080,
+    port: 3000,
+  },
+  module: {
+    rules: [
+      // Styles: Inject CSS into the head with source maps
+      {
+        test: /\.(sass|scss|css)$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: { sourceMap: true, importLoaders: 1, modules: false },
+          },
+          { loader: 'sass-loader', options: { sourceMap: true } },
+        ],
+      },
+    ],
   },
 })

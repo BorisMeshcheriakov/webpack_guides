@@ -4,13 +4,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
-    app: './src/index.js',
+    app: './src/index.ts',
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'webpack Boilerplate',
-      favicon: paths.src + '/images/favicon.ico',
-      template: paths.src + '/template.html', // template file
+      favicon: paths.public + '/favicon.ico',
+      template: paths.public + '/template.html', // template file
       filename: 'index.html', // output file
     }),
   ],
@@ -19,9 +19,18 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+    ],
+  },
   resolve: {
     modules: [paths.src, 'node_modules'],
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.js', '.jsx', '.json', 'ts', 'tsx'],
     alias: {
       '@': paths.src,
       assets: paths.public,
