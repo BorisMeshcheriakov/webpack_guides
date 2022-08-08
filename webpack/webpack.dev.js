@@ -1,5 +1,5 @@
-const { merge } = require('webpack-merge')
-const common = require('./webpack.common.js')
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
   mode: 'development',
@@ -9,7 +9,7 @@ module.exports = merge(common, {
     open: true,
     compress: true,
     hot: true,
-    port: 3000,
+    port: 5000,
   },
   module: {
     rules: [
@@ -27,4 +27,4 @@ module.exports = merge(common, {
       },
     ],
   },
-})
+});
