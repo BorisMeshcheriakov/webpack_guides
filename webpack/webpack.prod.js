@@ -1,17 +1,25 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const { paths } = require('./configuration');
-const { miniCssExtractPlugin } = require('./plugins');
+const {
+  miniCssExtractPlugin,
+  cleanWebpackPlugin,
+  imageMinimizerWebpackPlugin,
+} = require('./plugins');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
-const plugins = [miniCssExtractPlugin];
+const plugins = [cleanWebpackPlugin, miniCssExtractPlugin];
 
-module.exports = merge(common, {
+/**
+ * Webpack production configuration.
+ */
+const WebpackConfig = {
   plugins,
-  mode: 'production',
-  devtool: false,
-  output: {
-    path: paths.build,
-    publicPath: '/',
-    filename: 'js/[name].[contenthash].bundle.js',
+  optimization: {
+    minimize: true,
+    minimizer: [new CssMinimizerPlugin(), new TerserPlugin(), imageMinimizerWebpackPlugin],
   },
-});
+};
+
+module.exports = merge(common, WebpackConfig);

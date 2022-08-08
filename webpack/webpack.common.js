@@ -13,8 +13,9 @@ const entry = [`${paths.src}/index.tsx`, `${paths.src}/index.scss`];
  */
 const output = {
   publicPath: '/',
-  path: paths.dist,
+  path: paths.build,
   filename: config.JS_FILE_OUTPUT,
+  clean: true,
 };
 
 /**
