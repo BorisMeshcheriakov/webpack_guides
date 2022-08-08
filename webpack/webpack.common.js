@@ -6,7 +6,7 @@ const { typeScript, css } = require('./modules');
 /**
  * Entry point for the bundle.
  */
-const entry = [`${paths.src}/index.ts`];
+const entry = [`${paths.src}/index.tsx`, `${paths.src}/index.scss`];
 
 /**
  * Set output file name and path.

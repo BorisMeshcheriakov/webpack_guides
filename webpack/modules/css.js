@@ -10,7 +10,7 @@ const { config } = require('../configuration');
 
 const cssLoader = {
   loader: 'css-loader',
-  options: { sourceMap: true, importLoaders: 1, modules: false },
+  options: { sourceMap: true, importLoaders: 1, modules: true },
 };
 
 const sassLoader = { loader: 'sass-loader', options: { sourceMap: true } };
