@@ -1,6 +1,6 @@
-const { merge } = require('webpack-merge')
-const common = require('./webpack.common.js')
-const paths = require('./paths')
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common.js');
+const { paths } = require('./configuration');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -10,4 +10,4 @@ module.exports = merge(common, {
     publicPath: '/',
     filename: 'js/[name].[contenthash].bundle.js',
   },
-})
+});
