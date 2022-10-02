@@ -1,6 +1,7 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const { paths, config } = require('./configuration');
+const { eslintWebpackPlugin } = require('./plugins');
 
 const devServer = {
   open: true,
@@ -19,7 +20,10 @@ const devServer = {
   ],
 };
 
+const plugins = [eslintWebpackPlugin];
+
 const dev = {
+  plugins,
   devServer,
   devtool: 'cheap-module-source-map',
 };
