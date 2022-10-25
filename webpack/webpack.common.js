@@ -1,7 +1,7 @@
 /// const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { htmlWebpackPlugin } = require('./plugins');
 const { paths, config } = require('./configuration');
-const { typeScript, css } = require('./modules');
+const { typeScript, css, babel } = require('./modules');
 
 /**
  * Entry point for the bundle.
@@ -27,7 +27,7 @@ const plugins = [htmlWebpackPlugin];
  * Shared modules.
  */
 const modules = {
-  rules: [typeScript, css],
+  rules: [babel, typeScript, css],
 };
 
 /**
